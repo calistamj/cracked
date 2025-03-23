@@ -104,8 +104,17 @@ export function AddInventoryModal({ onAddInventory }: AddInventoryModalProps) {
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <Dialog 
+        open={open} 
+        onOpenChange={(isOpen) => {
+          if (!isOpen) {
+            form.reset(); 
+            setFileStates([]); 
+          }
+          setOpen(isOpen);
+        }}
+      >
+        <DialogTrigger asChild>
         <Button className="bg-blue-500 text-white">+ Add Inventory</Button>
       </DialogTrigger>
       <DialogContent>
@@ -218,18 +227,8 @@ export function AddInventoryModal({ onAddInventory }: AddInventoryModalProps) {
               name="inventory_photo"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Description</FormLabel>
                     <FormControl>
                     <div>
-                        {/* <input
-                          type="file"
-                          accept="image/*"
-                          onChange={(e) => {
-                            if (e.target.files?.[0]) {
-                              setFile(e.target.files[0]);
-                            }
-                          }}
-                        /> */}
                          <FormField
                           control={form.control}
                           name="inventory_photo"
@@ -237,16 +236,18 @@ export function AddInventoryModal({ onAddInventory }: AddInventoryModalProps) {
                             <FormItem>
                               <FormLabel>Upload Images</FormLabel>
                               <FormControl>
-                                <MultiImageDropzone
-                                  value={fileStates}
-                                  dropzoneOptions={{ maxFiles: 6 }}
-                                  onChange={setFileStates}
-                                  onFilesAdded={(files) => {
-                                    setFileStates(files);
-                                    uploadFiles(files);
-                                    field.onChange(files.map(f => f.file));
-                                  }}
-                                />
+                                <div className="max-h-[300px] overflow-y-auto border border-gray-300 p-2 rounded-lg">
+                                  <MultiImageDropzone
+                                    value={fileStates}
+                                    dropzoneOptions={{ maxFiles: 6 }}
+                                    onChange={setFileStates}
+                                    onFilesAdded={(files) => {
+                                      setFileStates(files);
+                                      uploadFiles(files);
+                                      field.onChange(files.map(f => f.file));
+                                    }}
+                                  />
+                                </div>
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -262,16 +263,24 @@ export function AddInventoryModal({ onAddInventory }: AddInventoryModalProps) {
             />
 
             <div className="flex justify-end space-x-2">
-              <Button variant="secondary" type="button" onClick={() => setOpen(false)}>
-                Cancel
-              </Button>
+                <Button 
+                  variant="secondary" 
+                  type="button" 
+                  onClick={() => {
+                    form.reset(); 
+                    setFileStates([]); 
+                    setOpen(false); 
+                  }}
+                >
+                  Cancel
+                </Button>
               <Button 
                 type="submit" 
                 form="add-inventory-form" 
                 className="bg-green-500 text-white"
-                disabled={isUploading || form.watch("inventory_photo").length === 0} // ✅ Tombol disabled jika upload belum selesai
+                disabled={isUploading } 
               >
-                {isUploading ? "Uploading..." : "Add Inventory"} {/* ✅ Ubah teks tombol */}
+                {isUploading ? "Uploading..." : "Add Inventory"} 
               </Button>
             </div>
           </form>
@@ -280,4 +289,3 @@ export function AddInventoryModal({ onAddInventory }: AddInventoryModalProps) {
     </Dialog>
   );
 }
-
