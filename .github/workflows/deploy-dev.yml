@@ -6,6 +6,8 @@ on:
 
 env:
   NODE_VERSION: 20.17.0
+  EDGE_STORE_ACCESS_KEY: ${{ secrets.EDGE_STORE_ACCESS_KEY }}
+  EDGE_STORE_SECRET_KEY: ${{ secrets.EDGE_STORE_SECRET_KEY }}
 
 jobs:
   deploy_dev:
@@ -23,6 +25,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache node_modules & .next
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .next
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
       - name: Install Vercel CLI
         run: npm install -g vercel
