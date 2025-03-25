@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 import { InventorySchema } from "@/models/schemas/inventory";
 import { useRouter } from "next/navigation"; 
 import { useState } from "react";
-import { EditInventoryModal } from "@/components/inventory/edit-inventory-modal";
-import { DeleteInventoryModal } from "@/components/inventory/delete-inventory-modal";
+import { EditInventoryModal } from "@/components/inventory/form/edit-inventory-modal";
+import { DeleteInventoryModal } from "@/components/inventory/form/delete-inventory-modal";
 
 const InventoryActions = ({ inventory }: { inventory: InventorySchema }) => {
   const router = useRouter();

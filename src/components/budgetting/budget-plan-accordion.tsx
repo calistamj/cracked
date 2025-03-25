@@ -1,15 +1,15 @@
 import { X } from "lucide-react";
-import { AddBudgetItemPlanForm } from "../form/create-item-plan-form";
+import { AddBudgetItemPlanForm } from "./form/create-item-plan-form";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { BudgetItemCategorySchema, BudgetSchema, InventorySchema, VendorServiceSchema } from "@/models/schemas";
 import { AddBudgetPlanItemDTO, UpdateBudgetItemCategoryDTO, UpdateBudgetPlanItemDTO, UpdatePurchaseDTO } from "@/models/dto";
 import { AddPurchaseDTO } from "@/models/dto";
-import { DeleteCategoryModal } from "../form/delete-category-form";
-import { UpdateBudgetItemCategoryForm } from "../form/update-category-form";
+import { DeleteCategoryModal } from "./form/delete-category-form";
+import { UpdateBudgetItemCategoryForm } from "./form/update-category-form";
 import { BudgetItemPlanResponse } from "@/models/response/item-plan.response";
 import { Badge } from "../ui/badge";
-import { UpdateBudgetItemPlanForm } from "../form/update-item-plan-form";
-import { DeleteBudgetPlanItemModal } from "../form/delete-item-plan-form";
+import { UpdateBudgetItemPlanForm } from "./form/update-item-plan-form";
+import { DeleteBudgetPlanItemModal } from "./form/delete-item-plan-form";
 
 interface BudgetManagementAccordionProps {
     categoriesPlan: BudgetItemCategorySchema[];

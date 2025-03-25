@@ -41,7 +41,7 @@ import { InventoryCategoryEnum } from "@/models/enums";
 import { InventorySchema } from "@/models/schemas/inventory";
 import { AddInventoryDTO } from "@/models/dto";
 import { useEdgeStore } from "@/lib/edgestore";
-import { FileState, MultiImageDropzone } from "../ui/multi-image-dropzone";
+import { FileState, MultiImageDropzone } from "../../ui/multi-image-dropzone";
 
 interface AddInventoryModalProps {
   onAddInventory: (data: AddInventoryDTO) => void;

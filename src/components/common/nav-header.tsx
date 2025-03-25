@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 
 import Image from "next/image"
-import { SearchForm } from "../form/search-form"
+import { SearchForm } from "./form/search-form"
 import Link from "next/link"
 import { FaHouse } from "react-icons/fa6"
 import { usePathname } from "next/navigation"

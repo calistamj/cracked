@@ -6,7 +6,7 @@ import EventContext from "@/models/context/event.context";
 import { Badge } from "@/components/ui/badge";
 import { BudgetManagementAccordion } from "@/components/budgetting/budget-plan-accordion";
 import { BudgetPlanItemSchema } from "@/models/schemas";
-import { AddBudgetItemCategoryForm } from "@/components/form/create-category-form";
+import { AddBudgetItemCategoryForm } from "@/components/budgetting/form/create-category-form";
 
 export default function EventBudgetPlanningPage() {
   const {

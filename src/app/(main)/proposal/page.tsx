@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ProposalTable } from "./data-table";
-import { proposalColumns } from "./columns";
+import { ProposalTable } from "../../../components/proposal/data-table";
+import { proposalColumns } from "../../../components/proposal/columns";
 import useProposal from "@/hooks/use-proposals";
 import PageHeader from "@/components/common/page-header";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { AddProposalModal } from "@/components/proposal/add-proposal-modal";
+import { AddProposalModal } from "@/components/proposal/form/add-proposal-modal";
 
 export default function ViewAllProposal() {
   const {

@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import useHr from "@/hooks/use-hr";
-import { HrTable } from "./data-table";
-import { hrColumns } from "./columns";
+import { HrTable } from "../../../components/human-resources/data-table";
+import { hrColumns } from "../../../components/human-resources/columns";
 
 export default function UsersPage() {
   const { fetchAllUsers, users } = useHr();

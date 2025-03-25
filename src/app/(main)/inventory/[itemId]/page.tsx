@@ -19,8 +19,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import useInventory from "@/hooks/use-inventory"; 
-import { DeleteInventoryModal } from "@/components/inventory/delete-inventory-modal";
-import { EditInventoryModal } from "@/components/inventory/edit-inventory-modal";
+import { DeleteInventoryModal } from "@/components/inventory/form/delete-inventory-modal";
+import { EditInventoryModal } from "@/components/inventory/form/edit-inventory-modal";
 import { useState } from "react";
 
 const ItemDetail = () => {
@@ -65,9 +65,9 @@ const ItemDetail = () => {
               {Array.isArray(inventory.inventory_photo) && inventory.inventory_photo.length > 0 ? (
                 inventory.inventory_photo.map((photo, index) => (
                   <CarouselItem key={index}>
-                    <Card>
-                      <CardContent className="flex aspect-square items-center justify-center p-4">
-                        <AspectRatio ratio={16 / 9}>
+                    <Card className="justify-center">
+                      <CardContent className="flex aspect-square items-center justify-center p-0">
+                        <AspectRatio ratio={1 / 1}>
                           <Image src={photo} alt={`Inventory Image ${index + 1}`} width={300} height={300} className="rounded-md object-cover" />
                         </AspectRatio>
                       </CardContent>

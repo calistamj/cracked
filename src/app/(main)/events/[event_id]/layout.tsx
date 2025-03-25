@@ -9,7 +9,7 @@ import EventContext from "@/models/context/event.context";
 import useEvent from "@/hooks/use-event";
 import useEventTask from "@/hooks/use-event-task";
 import EventDetailSkeleton from "@/components/events/event-detail-skeleton";
-import { UpdateEventForm } from "@/components/form/update-event-form";
+import { UpdateEventForm } from "@/components/events/form/update-event-form";
 import { Trash } from "lucide-react";
 import useBudgetPlan from "@/hooks/use-budget-plan";
 import useCategory from "@/hooks/use-category";

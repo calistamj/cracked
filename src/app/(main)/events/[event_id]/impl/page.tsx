@@ -5,8 +5,8 @@ import { useSafeContext } from "@/hooks/use-safe-context";
 import EventContext from "@/models/context/event.context";
 import { BudgetPlanItemSchema } from "@/models/schemas";
 import { ActualBudgetManagementAccordion } from "@/components/budgetting/budget-actual-management.ts";
-import { AddBudgetItemCategoryForm } from "@/components/form/create-category-form";
-import { ImportDataModal } from "@/components/form/handle-import-data";
+import { AddBudgetItemCategoryForm } from "@/components/budgetting/form/create-category-form";
+import { ImportDataModal } from "@/components/budgetting/handle-import-data";
 
 export default function EventBudgetImplementationPage() {
   const {
